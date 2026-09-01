@@ -1,0 +1,34 @@
+// Documentacao: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  nome     String   @db.VarChar(120)
+  email    String   @unique @db.VarChar(160)
+  senha    String   @db.VarChar(255)
+  criadoEm DateTime @default(now()) @map("criado_em")
+
+  posts Post[]
+
+  @@map("users")
+}
+
+model Post {
+  id       Int      @id @default(autoincrement())
+  conteudo String   @db.Text
+  autorId  Int      @map("autor_id")
+  criadoEm DateTime @default(now()) @map("criado_em")
+
+  autor User @relation(fields: [autorId], references: [id], onDelete: Cascade)
+
+  @@index([autorId])
+  @@map("posts")
+}

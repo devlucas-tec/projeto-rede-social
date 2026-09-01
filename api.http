@@ -1,0 +1,61 @@
+### Extensao recomendada no VS Code: "REST Client" (humao.rest-client)
+### Clique em "Send Request" acima de cada bloco.
+
+@baseUrl = http://localhost:3000
+
+### Rota raiz
+GET {{baseUrl}}/
+
+### Health check (testa a conexao com o MySQL)
+GET {{baseUrl}}/health
+
+### Listar usuarios
+GET {{baseUrl}}/users
+
+### Buscar um usuario com os posts dele
+GET {{baseUrl}}/users/1
+
+### Criar usuario
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "nome": "Novo Usuario",
+  "email": "novo@email.com",
+  "senha": "123456"
+}
+
+### Login
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email": "winni@gmail.com",
+  "senha": "123456"
+}
+
+### Atualizar usuario
+PUT {{baseUrl}}/users/1
+Content-Type: application/json
+
+{
+  "nome": "Winnicius Editado"
+}
+
+### Deletar usuario
+DELETE {{baseUrl}}/users/3
+
+### Listar posts
+GET {{baseUrl}}/posts
+
+### Criar post
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "conteudo": "Meu post novo!",
+  "autorId": 1
+}
+
+### Deletar post
+DELETE {{baseUrl}}/posts/1
