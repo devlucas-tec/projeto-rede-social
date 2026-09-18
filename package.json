@@ -6,13 +6,17 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "skinvault",
+    "skins",
+    "crud",
+    "api"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "API CRUD para gerenciamento de skins do SkinVault",
   "devDependencies": {
     "@types/node": "^26.2.0",
     "tsx": "^4.23.12",
