@@ -1,0 +1,70 @@
+### Extensao recomendada no VS Code: "REST Client" (humao.rest-client)
+### Clique em "Send Request" acima de cada bloco.
+
+@baseUrl = http://localhost:3000
+
+### Rota raiz
+GET {{baseUrl}}/
+
+### Health check (testa a conexao com o MySQL)
+GET {{baseUrl}}/health
+
+### Listar usuarios
+GET {{baseUrl}}/users
+
+### Buscar um usuario com os posts dele
+GET {{baseUrl}}/users/1
+
+### Criar usuario
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "nome": "Novo Usuario",
+  "email": "novo@email.com",
+  "senha": "123456"
+}
+
+### Login (copie o "token" da resposta e cole nas variaveis abaixo)
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email": "winni@gmail.com",
+  "senha": "123456"
+}
+
+### Cole aqui o token recebido no login
+@token = COLE_O_TOKEN_AQUI
+
+### Consultar usuario logado (protegido por JWT)
+GET {{baseUrl}}/users/me
+Authorization: Bearer {{token}}
+
+### Atualizar usuario logado (protegido por JWT)
+PUT {{baseUrl}}/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nome": "Winnicius Editado"
+}
+
+### Deletar usuario logado (protegido por JWT)
+DELETE {{baseUrl}}/users
+Authorization: Bearer {{token}}
+
+### Listar posts
+GET {{baseUrl}}/posts
+
+### Criar post
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "conteudo": "Meu post novo!",
+  "autorId": 1
+}
+
+### Deletar post
+DELETE {{baseUrl}}/posts/1

@@ -1,0 +1,41 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Build / compilação
+dist/
+build/
+*.tsbuildinfo
+
+# Variáveis de ambiente (contém DATABASE_URL e JWT_SECRET — nunca sobem pro Git)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+prisma/generated/
+
+# Cobertura de testes
+coverage/
+
+# Editor / IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Diversos
+*.tgz
+.cache/
